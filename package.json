@@ -1,0 +1,17 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "1.0.0",
+  "description": "frontend-nanodegree-mobile-portfolio optimization project",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceepick/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "author": "Cory Pickrel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ceepick/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/ceepick/frontend-nanodegree-mobile-portfolio#readme"
+}
