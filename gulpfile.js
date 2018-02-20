@@ -4,7 +4,8 @@ var gulpUglify = require('gulp-uglify');
 var gulpCssNano = require('gulp-cssnano');
 var gulpIf = require('gulp-if');
 var imagemin = require('gulp-imagemin');
-var browserSync = require('browser-sync')
+var browserSync = require('browser-sync');
+var psi = require('psi');
 
 gulp.task('useref', function() {
 	return gulp.src('./*.html')
@@ -21,25 +22,33 @@ gulp.task('images', function() {
 });
 
 gulp.task('dev', function () {
-    browserSync({
-        server: {
-            baseDir: './'
-        },
-        host: 'localhost',
-        port: 8000,
-        open: false,
-        notify: false
-    })
+	var bs = browserSync.create();
+
+	bs.init({
+	    server: "./",
+	    port: 8000
+	});
+
+	bs.reload("*.html");
 });
 
 gulp.task('dist', function () {
-    browserSync({
-        server: {
-            baseDir: 'dist'
-        },
-        host: 'localhost',
-        port: 8000,
-        open: false,
-        notify: false
-    })
+	var bs = browserSync.create();
+
+	bs.init({
+	    server: 'dist',
+	    port: 8000
+	});
+	
+	bs.reload("*.html");
+});
+
+gulp.task('psi', function() {
+	return psi('http://208be688.ngrok.io/', {
+		nokey: 'true',
+		strategy: 'mobile'
+	}).then(function(data) {
+		// todo: write to file
+		console.log(data);
+	});
 });
