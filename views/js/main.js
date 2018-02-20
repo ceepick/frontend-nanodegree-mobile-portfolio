@@ -142,6 +142,15 @@ pizzaIngredients.crusts = [
   "Stuffed Crust"
 ];
 
+
+
+/* 
+  Note: 
+    - Removed String.prototype.captitalize function
+  */
+
+
+
 // Pulls adjective out of array using random number sent from generator
 function getAdj(x){
   switch(x) {
@@ -426,6 +435,12 @@ function changePizzaSizes(size) {
         console.log("bug in sizeSwitcher");
   }
 
+  /*
+    Note: 
+      - Removed expensive calls that were being invoked on every loop iteration.
+      - Reduced the complexity of the resizing.
+  */
+
   var pizzas = document.getElementsByClassName('randomPizzaContainer');
 
   for (var i = 0; i < pizzas.length; ++i) {
@@ -437,6 +452,10 @@ function changePizzaSizes(size) {
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
+  /*
+    Note:
+      - De-nested these two function declarations.
+  */
   changeSliderLabel(size);
   changePizzaSizes(size);
 
@@ -478,6 +497,12 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+/*
+  Note:
+    - Added a debounce function to prevent the scroll listener from firing as often.
+    - I only pulled the logic out that performs the update. I left the performance library intact.
+*/
+
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
@@ -493,6 +518,10 @@ function debounce(func, wait, immediate) {
   };
 };
 
+/*
+  Note:
+    - Pulled reptitive logic outside of the loop that only needed to be performed once.
+*/
 var debounceUpdate = debounce(function() {
   var items = document.getElementsByClassName('mover');
   var top = document.body.scrollTop / 1250;
@@ -527,6 +556,11 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
+
+  /*
+    Note:
+      - Updated logic to dynamically determine the number of pizzas that are shown.
+  */
   var cols = screen.availWidth / s;
   var rows = screen.availHeight / s;
   var numPizzasShown = Math.ceil(cols * rows);
