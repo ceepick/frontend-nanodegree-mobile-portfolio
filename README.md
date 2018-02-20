@@ -1,5 +1,7 @@
 ## Website Performance Optimization portfolio project
 
+My optimization project for your review. This is my last project for this course! It's been fun and thanks for all your help!
+
 ### Setup
 
 1. Download or clone this project onto your computer.
@@ -34,7 +36,7 @@ _Note: Google PSI no longer displays the speed score for ngrok sites, but you wi
 
 #### Optimizations
 
-Please see the [commit log](commits/master) for line item changes.
+Please see the [commit log](https://github.com/ceepick/frontend-nanodegree-mobile-portfolio/commits/master) for line item changes.
 
 - Added [gulp tasks](gulpfile.js) to perform the following:
 	- uglify js
@@ -57,26 +59,50 @@ Please see the screenshots in the [results](results) directory of this repositor
 		- SPEED: 95
 
 
-####Part 2: Optimize Frames per Second in pizza.html
+### Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+#### Validate Performance Setup
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+1. Repeat relevant steps from Setup to start the application from the dist build.
+2. Open Chrome.
+3. Navigate to the following url: [pizza view](http://localhost:8000/views/pizza.html).
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
+4. Open developer tools (`CMD + OPTION + I`).
+5. Select the `Performance` tab.
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
+- Slider Jank
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+1. Find the slider under the 'Our Pizzas' section.
+2. Slide it as many times as you want between the 3 options.
+3. Reference the console log for performance metrics.
+
+- Scrolling Jank
+
+1. Press the record button (should appear as a black dot) in developer tools to begin the trace.
+2. Scroll the page up and down as much as desired.
+3. Press the `Stop` button in developer tools to stop the trace.
+4. Reference the performance data displayed in the dev tools.
+
+#### Optimizations
+
+Please see the [commit log](https://github.com/ceepick/frontend-nanodegree-mobile-portfolio/commits/master) for line item changes.
+
+- Use css to capitalize the names of the pizzas in place of the js function.
+- Convert querySelector and querySelectorAll calls to more performant getElementById and getElementsByClassName functions.
+- Move data setup and repetitive logic outside of loops.
+- De-nest and remove unnecessary functions.
+- Reduce the number of pizzas shown with consideration of the available screen width and height.
+- Debounce the scroll listener function.
+
+#### Results
+
+Please see the screenshots in the [results](results) directory of this repository.
+
+- At a glance
+	- Consistant ~60fps when scrolling.
+	- Time to resize pizzas is generally less than 5ms.
+		- _Note: the initial movement of the slider performs greater than 5ms, but every subsequent movement registers at .5 or below._
+
+
+
+
