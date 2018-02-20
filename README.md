@@ -14,7 +14,8 @@
 #### Run PSI
 
 - Option 1:
-_Note: Google PSI no longer displays the speed score for ngrok sites, but you will be able to see the optimization score and suggestions.
+
+_Note: Google PSI no longer displays the speed score for ngrok sites, but you will be able to see the optimization score and suggestions._
 
 1. Open a new Terminal instance and navigate to the dist directory of the downloaded project.
 2. Enter the command `ngrok http 8000`.
@@ -29,11 +30,24 @@ _Note: Google PSI no longer displays the speed score for ngrok sites, but you wi
 4. Open `gulpfile.js` and replace the url passed to the psi function in the psi gulp task.
 5. Open a new Terminal instance and navigate to the root directory of the downloaded project.
 6. Enter the commmand `gulp psi` and wait for the report to be generated.
-7. Reopen `gulpfile.js` and replace the `strategy` key with either `mobile` or `desktop` depending on which your an first.
+7. Reopen `gulpfile.js` and replace the `strategy` key with either `mobile` or `desktop` depending on which you ran first.
+
+#### Optimizations
+
+Please see the [commit log](commits/master) for line item changes.
+
+- Added [gulp tasks](gulpfile.js) to perform the following:
+	- uglify js
+	- minify and inline css
+	- minify html
+	- reduce the size of the pizzeria image
+- Updated the [index file](index.html)
+	- mark scripts as async
+	- comment hooks for gulp tasks (ex: smoosher)
 
 #### Results
 
-Please see the screenshots in the [results](./results) directory of this repository.
+Please see the screenshots in the [results](results) directory of this repository.
 
 - At a glance:
 	- PSI Mobile
