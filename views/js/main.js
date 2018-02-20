@@ -445,7 +445,7 @@ function changePizzaSizes(size) {
 
   for (var i = 0; i < pizzas.length; ++i) {
     pizzas[i].style.width = modifier.toString() + '%';
-  };
+  }
 }
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
@@ -516,7 +516,7 @@ function debounce(func, wait, immediate) {
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
-};
+}
 
 /*
   Note:
