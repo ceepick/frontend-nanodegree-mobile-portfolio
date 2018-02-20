@@ -66,7 +66,6 @@ Please see the screenshots in the [results](results) directory of this repositor
 1. Repeat relevant steps from Setup to start the application from the dist build.
 2. Open Chrome.
 3. Navigate to the following url: [pizza view](http://localhost:8000/views/pizza.html).
-
 4. Open developer tools (`CMD + OPTION + I`).
 5. Select the `Performance` tab.
 
