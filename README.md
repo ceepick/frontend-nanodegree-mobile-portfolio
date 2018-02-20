@@ -1,34 +1,47 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+### Setup
 
-To get started, check out the repository and inspect the code.
+1. Download or clone this project onto your computer.
+2. In Terminal, cd into the root directory of the downloaded project.
+3. Enter the command `npm install` and wait for the process to finish.
+4. Enter the command `gulp build` to create the distribution build.
+5. Open a new Terminal instance and navigate to the root directory of the downloaded project.
+6. Enter the command `gulp dist` to start the local server using the dist build.
 
-### Getting started
+### Part 1: Optimize PageSpeed Insights score for index.html
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+#### Run PSI
 
-Some useful tips to help you get started:
+- Option 1:
+_Note: Google PSI no longer displays the speed score for ngrok sites, but you will be able to see the optimization score and suggestions.
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+1. Open a new Terminal instance and navigate to the dist directory of the downloaded project.
+2. Enter the command `ngrok http 8000`.
+3. Open Chrome or your desired browser.
+4. Navigate to the following url: [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+5. Copy and paste the http or https value for the 'forwarding' keys into the required input field and press the Analyze button.
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+- Option 2:
+1. Open a new Terminal instance and navigate to the dist directory of the downloaded project.
+2. Enter the command `ngrok http 8000`.
+3. Copy the http or https value for the 'forwarding' keys.
+4. Open `gulpfile.js` and replace the url passed to the psi function in the psi gulp task.
+5. Open a new Terminal instance and navigate to the root directory of the downloaded project.
+6. Enter the commmand `gulp psi` and wait for the report to be generated.
+7. Reopen `gulpfile.js` and replace the `strategy` key with either `mobile` or `desktop` depending on which your an first.
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+#### Results
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
+Please see the screenshots in the [results](./results) directory of this repository.
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+- At a glance:
+	- PSI Mobile
+		- SPEED: 95
+		- USABILITY: 100
+	- PSI Desktop
+		- SPEED: 95
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 

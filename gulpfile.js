@@ -60,7 +60,8 @@ gulp.task('build', function() {
 // page speed insights
 
 gulp.task('psi', function() {
-	return psi('http://4cdbb366.ngrok.io/', {
+	// update url after running a new ngrok session
+	return psi('http://3277d1e9.ngrok.io/', {
 		nokey: 'true',
 		strategy: 'desktop'
 	}).then(function(data) {
