@@ -5,6 +5,7 @@ var gulpIf = require('gulp-if');
 var gulpUglify = require('gulp-uglify');
 var gulpCssNano = require('gulp-cssnano');
 var gulpSmoosher = require('gulp-smoosher');
+var gulpGm = require('gulp-gm');
 var htmlmin = require('gulp-htmlmin');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
@@ -41,14 +42,12 @@ gulp.task('buildhtml', function() {
 		.pipe(gulp.dest('dist'))
 });
 
-gulp.task('buildimages', function() {
-	return gulp.src([
-		'!node_modules',
-		'!node_modules/**', 
-		'./**/img/*.+(png|jpg|gif|svg)'
-		])
-		.pipe(imagemin())
-		.pipe(gulp.dest('dist'))
+gulp.task('buildimages', function () {
+  gulp.src('./views/img/*', {base: './'})
+    .pipe(gulpGm(function (gmfile) {
+      return gmfile.resize(100, 100);
+    }))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build', function() {
@@ -58,7 +57,7 @@ gulp.task('build', function() {
 // page speed insights
 
 gulp.task('psi', function() {
-	return psi('http://4cf4d4bd.ngrok.io/', {
+	return psi('http://7b020264.ngrok.io/', {
 		nokey: 'true',
 		strategy: 'mobile'
 	}).then(function(data) {
