@@ -43,9 +43,12 @@ gulp.task('buildhtml', function() {
 });
 
 gulp.task('buildimages', function () {
-  gulp.src('./views/img/*', {base: './'})
+  gulp.src(['./img/*', './views/img/*'], {base: './'})
     .pipe(gulpGm(function (gmfile) {
-      return gmfile.resize(100, 100);
+    	if (gmfile.source.includes('pizzeria')) {
+    		return gmfile.resize(100, 100);		
+    	}
+    	return gmfile;
     }))
     .pipe(gulp.dest('dist'));
 });
@@ -57,7 +60,7 @@ gulp.task('build', function() {
 // page speed insights
 
 gulp.task('psi', function() {
-	return psi('http://7b020264.ngrok.io/', {
+	return psi('http://be2e1e65.ngrok.io/', {
 		nokey: 'true',
 		strategy: 'mobile'
 	}).then(function(data) {
