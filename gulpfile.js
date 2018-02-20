@@ -44,7 +44,7 @@ gulp.task('dist', function () {
 });
 
 gulp.task('psi', function() {
-	return psi('http://208be688.ngrok.io/', {
+	return psi('http://687f6fb2.ngrok.io/', {
 		nokey: 'true',
 		strategy: 'mobile'
 	}).then(function(data) {
