@@ -552,8 +552,8 @@ var debounceUpdate = debounce(function() {
     phase.push(Math.sin(top + (i % 5)));
   }
 
-  for (var i = 0; i < items.length; ++i) {
-    items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
+  for (var idx = 0; idx < items.length; ++idx) {
+    items[idx].style.left = items[idx].basicLeft + 100 * phase[i%5] + 'px';
   }
 }, 250);
 

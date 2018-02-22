@@ -71,9 +71,9 @@ gulp.task('build', function() {
 
 gulp.task('psi', function() {
 	// update url after running a new ngrok session
-	return psi('http://afb3c8d6.ngrok.io', {
+	return psi('http://cba2ad48.ngrok.io/', {
 		nokey: 'true',
-		strategy: 'desktop'
+		strategy: 'mobile'
 	}).then(function(data) {
 		console.log(data);
 	});
