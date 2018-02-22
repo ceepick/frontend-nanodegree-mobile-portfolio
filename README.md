@@ -1,7 +1,7 @@
 ## Website Performance Optimization portfolio project
 
 ```diff
-- Re-submission Review Notes to Reviewer
+- Re-submission Notes to Reviewer
 ```
 
 _Please reference the [commit log](https://github.com/ceepick/frontend-nanodegree-mobile-portfolio/commits/master) for my changes._
@@ -15,6 +15,10 @@ _Please reference the [commit log](https://github.com/ceepick/frontend-nanodegre
 
 Thanks,
 Cory
+
+```diff
+- End Re-submission Notes to Reviewer
+```
 
 
 My optimization project for your review. This is my last project for this course! It's been fun and thanks for all your help!
