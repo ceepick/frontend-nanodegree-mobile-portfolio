@@ -30,6 +30,11 @@ gulp.task('buildcss', function() {
 		.pipe(gulp.dest('dist'))
 });
 
+/*
+	Note to reviewer:
+		- This build task leverages smoosh to inline denoted css.
+			- In this case I used the "smoosh/endsmoosh" tags in index.html around the style.css file link tag.
+*/
 gulp.task('buildhtml', function() {
 	return gulp.src(['./*.html', './views/*.html'], {base: './'})
 		.pipe(gulpSmoosher())
@@ -42,6 +47,11 @@ gulp.task('buildhtml', function() {
 		.pipe(gulp.dest('dist'))
 });
 
+/*
+	Note to reviewer:
+		- This build task resizes and compresses the pizzeria img down to 23kb.
+			- The built file can be found at dist/views/img/pizzeria.jpg
+*/
 gulp.task('buildimages', function () {
   gulp.src(['./img/*', './views/img/*'], {base: './'})
     .pipe(gulpGm(function (gmfile) {

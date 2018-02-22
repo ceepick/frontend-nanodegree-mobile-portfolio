@@ -1,5 +1,22 @@
 ## Website Performance Optimization portfolio project
 
+```diff
+- Re-submission Review Notes to Reviewer
+```
+
+_Please reference the [commit log](https://github.com/ceepick/frontend-nanodegree-mobile-portfolio/commits/master) for my changes._
+
+- Things to note:
+	- The review asked me to inline `style.css`. This was already achieved using `gulp-smoosher` in my gulp file task `buildhtml`.
+		- Please refer to my commits and comments that I added in code.
+	- The review asked me to compress the `pizzeria.jpg` image. This was already achieved using `gulp-gm` in my gulp file task `buildimages`.
+		- Please refer to my commits and comments that I added in code.
+	- I made the suggested changes by the reviewer and appreciate the tips!
+
+Thanks,
+Cory
+
+
 My optimization project for your review. This is my last project for this course! It's been fun and thanks for all your help!
 
 ### Setup
