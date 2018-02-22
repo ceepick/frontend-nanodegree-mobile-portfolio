@@ -519,17 +519,41 @@ function debounce(func, wait, immediate) {
 }
 
 /*
+
+var phase = [];
+
+for (var i = 0; i < 5; i++) {
+    phase.push(Math.sin(scrollTop / 1250 + i) * 100);
+}
+
+for (var i = 0, max = items.length; i < max; i++) {
+    items[i].style.left = items[i].basicLeft + phase[i%5] + 'px';
+}
+*/
+
+/*
   Note:
     - Pulled reptitive logic outside of the loop that only needed to be performed once.
 */
 var debounceUpdate = debounce(function() {
   var items = document.getElementsByClassName('mover');
-  var top = document.body.scrollTop / 1250;
+  /*
+    Note:
+      - Updated scrollTop per review. Thanks for the tip!
+  */
+  var top = document.scrollingElement.scrollTop / 1250;
   var phase;
 
-  for (var i = 0; i < items.length; i++) {
-    phase = Math.sin(top + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  /*
+    Note:
+      - Per review, I pulled the phase calculation outside of the loop. This removed unnecessary sin invocations.
+  */
+  for (var i = 0; i < 5; ++i) {
+    phase.push(Math.sin(top + (i % 5)));
+  }
+
+  for (var i = 0; i < items.length; ++i) {
+    items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
   }
 }, 250);
 
